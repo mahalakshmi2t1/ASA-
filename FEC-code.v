@@ -53,7 +53,7 @@ always @(*) begin
             next_state = PARITY;
     PARITY:
         if (parity_cnt == PARITY-1)
-            next_state = DONE;
+            next_state = NEXT_BLK;
    NEXT_BLK:
         if (blk_cnt == NUM_BLK-1)
             next_state = DONE;
