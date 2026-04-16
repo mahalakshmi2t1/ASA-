@@ -15,7 +15,7 @@ module fec_fsm #(
     output reg  select_parity,
 
     // TX output
-    output reg [DATA_WIDTH-1:0]     tx_data,
+    output reg [DATA_WIDTH-1:0] tx_data,
     output reg tx_valid,
     output reg frame_start,
     output reg frame_end
