@@ -15,7 +15,7 @@ module fec_fsm #(
     // TX output
     output reg [8:0] tx_data,
     output reg tx_valid,
-    output reg frame_end
+    output reg fec_done
 );
 
 localparam PARITY = N - K;
@@ -98,7 +98,7 @@ always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         tx_data        <= 0;
         tx_valid       <= 0;
-        frame_end      <= 0;
+        fec_done       <= 0;
     end else begin
         tx_valid      <= 0;
         frame_end     <= 0;
@@ -116,7 +116,7 @@ always @(posedge clk or negedge rst_n) begin
             end
         end
         DONE: begin
-            frame_end     <= 1;
+            fec_done         <= 1;
         end
         endcase
     end
